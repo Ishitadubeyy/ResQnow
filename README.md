@@ -1,6 +1,6 @@
-# SafePath - Emergency Response System
+# ResQNow - Emergency Response System
 
-A comprehensive healthcare emergency response web application built with React. SafePath provides a complete solution for emergency reporting, medical assistance, and emergency service location.
+A comprehensive healthcare emergency response web application built with React. ResQNow provides a complete solution for emergency reporting, medical assistance, and emergency service location.
 
 ## 🚀 Features
 

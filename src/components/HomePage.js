@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LocationDisplay from "./LocationDisplay";
 import EmergencyCarousel from "./EmergencyCarousel";
-import { FaAmbulance, FaShieldAlt, FaFireExtinguisher } from "react-icons/fa";
+import { FaAmbulance, FaShieldAlt, FaFireExtinguisher, FaHeartbeat, FaMapMarkedAlt, FaUserMd } from "react-icons/fa";
 
 function HomePage() {
   return (
@@ -17,7 +17,11 @@ function HomePage() {
               <div className="decoration-circle circle-3"></div>
             </div>
             <h1 className="hero-title">ResQNow</h1>
-            <p className="hero-subtitle">Emergency Response System</p>
+            <p className="hero-subtitle">Professional Emergency Response System</p>
+            <div className="hero-buttons">
+              <Link to="/report" className="hero-primary-btn">Report Emergency</Link>
+              <Link to="/assistance" className="hero-secondary-btn">Get Help</Link>
+            </div>
           </div>
         </div>
       </div>
@@ -30,7 +34,7 @@ function HomePage() {
         <div className="need-help-content">
           <div className="hero-cta">
             <p className="cta-text">Need Help?</p>
-            <p className="cta-subtext">We're here for you 24/7</p>
+            <p className="cta-subtext">We're here for you 24/7 with professional emergency services</p>
             <div className="hero-location">
               <LocationDisplay showPermissionButton={true} />
             </div>
@@ -72,29 +76,39 @@ function HomePage() {
       {/* Main Action Buttons */}
       <div className="main-actions">
         <Link to="/report" className="action-card">
+          <div className="action-icon">
+            <FaHeartbeat />
+          </div>
           <h3>Report an Accident</h3>
-          <p>Quickly report incidents with photos and details</p>
+          <p>Quickly report incidents with photos and details to emergency services</p>
         </Link>
         
         <Link to="/assistance" className="action-card">
+          <div className="action-icon">
+            <FaUserMd />
+          </div>
           <h3>Get Assistance</h3>
-          <p>Connect with medical professionals instantly</p>
+          <p>Connect with medical professionals instantly for immediate help</p>
         </Link>
         
         <Link to="/locator" className="action-card">
+          <div className="action-icon">
+            <FaMapMarkedAlt />
+          </div>
           <h3>Emergency Locator</h3>
-          <p>Find nearby hospitals and emergency services</p>
+          <p>Find nearby hospitals and emergency services in real-time</p>
         </Link>
       </div>
 
-
       {/* Safety Tips */}
       <div className="safety-tips">
-        <h3>Safety Tips</h3>
+        <h3>Essential Safety Tips</h3>
         <div className="tips-card">
           <ul>
             <li>Always keep your emergency contacts updated in the app settings for faster response times.</li>
             <li>Enable location services to help emergency responders find you quickly.</li>
+            <li>Keep a first aid kit accessible and know basic life-saving techniques.</li>
+            <li>Stay calm during emergencies and follow instructions from emergency personnel.</li>
           </ul>
         </div>
       </div>

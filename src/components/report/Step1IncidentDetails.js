@@ -1,4 +1,5 @@
 import React from "react";
+import { FaMapMarkerAlt, FaClock, FaExclamationTriangle } from "react-icons/fa";
 
 function Step1IncidentDetails({ formData, updateFormData, nextStep, prevStep }) {
   const handleInputChange = (field, value) => {
@@ -16,11 +17,12 @@ function Step1IncidentDetails({ formData, updateFormData, nextStep, prevStep }) 
   return (
     <div className="step-container">
       <h2 className="step-title">Incident Details</h2>
-      
+
       <div className="form-section">
+        {/* Location */}
         <div className="form-group">
           <label className="form-label">
-            Location
+            <FaMapMarkerAlt className="label-icon" /> Location
           </label>
           <input
             type="text"
@@ -31,37 +33,44 @@ function Step1IncidentDetails({ formData, updateFormData, nextStep, prevStep }) 
           />
         </div>
 
+        {/* ✅ FIXED: Use datetime-local instead of plain text */}
         <div className="form-group">
           <label className="form-label">
-            Time of Incident
+            <FaClock className="label-icon" /> Time of Incident
           </label>
           <input
-            type="text"
+            type="datetime-local"
             className="form-input"
-            placeholder="e.g. 10:30 AM"
             value={formData.time}
             onChange={(e) => handleInputChange("time", e.target.value)}
           />
+          <small className="form-hint">
+            Please select the exact date & time (auto-formats for database)
+          </small>
         </div>
 
+        {/* Severity */}
         <div className="form-group">
           <label className="form-label">
-            Severity
+            <FaExclamationTriangle className="label-icon" /> Severity
           </label>
           <div className="severity-buttons">
             <button
+              type="button"
               className={`severity-btn ${formData.severity === "Low" ? "active low" : "low"}`}
               onClick={() => handleSeverityChange("Low")}
             >
               Low
             </button>
             <button
+              type="button"
               className={`severity-btn ${formData.severity === "Medium" ? "active medium" : "medium"}`}
               onClick={() => handleSeverityChange("Medium")}
             >
               Medium
             </button>
             <button
+              type="button"
               className={`severity-btn ${formData.severity === "High" ? "active high" : "high"}`}
               onClick={() => handleSeverityChange("High")}
             >
@@ -71,12 +80,13 @@ function Step1IncidentDetails({ formData, updateFormData, nextStep, prevStep }) 
         </div>
       </div>
 
+      {/* Navigation */}
       <div className="step-navigation">
         <button className="nav-btn back-btn" onClick={prevStep}>
           ← Back
         </button>
-        <button 
-          className="nav-btn next-btn" 
+        <button
+          className="nav-btn next-btn"
           onClick={nextStep}
           disabled={!isFormValid()}
         >
